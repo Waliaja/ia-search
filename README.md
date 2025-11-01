@@ -114,6 +114,7 @@ You can use these in your queries (combine with AND/OR/NOT):
 | `mediatype` | `mediatype:movies` | Filter by content type (movies, audio, image, texts, etc.) |
 | `title` | `title:"Studio Ghibli"` | Search by title |
 | `creator` | `creator:"NHK"` | Filter by uploader/author |
+| `uploader` | `uploader:xxxx@gmail.com` | Filter by uploader |
 | `subject` | `subject:japan` | Filter by subject tags |
 | `language` | `language:japanese` | Filter by language |
 | `year` | `year:1990` | Filter by year |
