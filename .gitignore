@@ -1,0 +1,19 @@
+# Editor backups
+*~
+*.swp
+*.swo
+
+# Temporary or cache files
+/tmp/
+*.cache
+*.bak
+
+# Logs
+*.log
+
+# System clutter
+.DS_Store
+Thumbs.db
+
+# Python or other CLI tool caches (just in case)
+__pycache__/
