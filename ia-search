@@ -1,0 +1,135 @@
+#!/bin/bash
+# 🎬 ia-search — Interactive Internet Archive browser & downloader
+
+# --- Player Config ---
+VIDEO_PLAYER="mpv"
+AUDIO_PLAYER="mpv"
+IMAGE_VIEWER="nsxiv"
+PDF_VIEWER="zathura"
+# ---------------------
+
+# --- Downloader Config ---
+VIDEO_DOWNLOADER="yt-dlp"
+# --------------------------
+
+while true; do
+    query="$1"
+    set -- # clear args after first loop
+
+    if [ -z "$query" ]; then
+        read -p "🔍 Enter search query for Internet Archive (or 'exit' to quit): " query
+    fi
+
+    if [ "$query" == "exit" ]; then
+        echo "👋 Exiting."
+        break
+    fi
+
+    if [ -z "$query" ]; then
+        echo "⚠️  No search query entered."
+        continue
+    fi
+
+    echo "🔎 Searching for \"$query\" ..."
+    identifier=$(ia search "$query" --field="mediatype:movies" --itemlist | fzf --prompt="🎥 Select an item > ")
+
+    if [ -z "$identifier" ]; then
+        echo "🚫 No item selected."
+        continue
+    fi
+
+    echo "📂 Fetching file list for: $identifier ..."
+    file_list=$(ia list "$identifier")
+    filename=$(echo "$file_list" | fzf --prompt="📁 Select a file to open > ")
+
+    if [ -z "$filename" ]; then
+        echo "🚫 No file selected."
+        continue
+    fi
+
+    # 🎛️ Determine action label (Play vs Open)
+    case "$filename" in
+        *.mp4|*.mkv|*.avi|*.webm|*.flv|*.ogv|*.mp3|*.ogg|*.flac|*.wav|*.m4a)
+            action_label="▶️ Play"
+            ;;
+        *)
+            action_label="📂 Open"
+            ;;
+    esac
+
+    action=$(echo -e "$action_label\n⬇️ Download" | fzf --prompt="🎬 Choose action for $filename > ")
+
+    if [ -z "$action" ]; then
+        echo "🚫 No action selected."
+        continue
+    fi
+
+    filename_encoded=$(echo "$filename" | sed 's/ /%20/g')
+    url="https://archive.org/download/$identifier/$filename_encoded"
+
+    # --- Play / Open Logic ---
+    if [ "$action" == "▶️ Play" ] || [ "$action" == "📂 Open" ]; then
+        case "$filename" in
+            *.mp4|*.mkv|*.avi|*.webm|*.flv|*.ogv)
+                echo "🎞️  Playing video with $VIDEO_PLAYER..."
+                video_basename=$(echo "$filename" | sed 's/\.[^.]*$//')
+                sub_file=$(echo "$file_list" | grep -E "${video_basename}\.(srt|ass)" | head -n1)
+
+                if [ -n "$sub_file" ]; then
+                    echo "💬 Found subtitles: $sub_file"
+                    sub_encoded=$(echo "$sub_file" | sed 's/ /%20/g')
+                    sub_url="https://archive.org/download/$identifier/$sub_encoded"
+                    $VIDEO_PLAYER "$url" --sub-file="$sub_url" >/dev/null 2>&1 &
+                else
+                    echo "🈚 No subtitles found."
+                    $VIDEO_PLAYER "$url" >/dev/null 2>&1 &
+                fi
+                ;;
+            *.mp3|*.ogg|*.flac|*.wav|*.m4a)
+                echo "🎧 Playing audio with $AUDIO_PLAYER..."
+                $AUDIO_PLAYER "$url" >/dev/null 2>&1 &
+                ;;
+            *.png|*.jpg|*.jpeg|*.gif|*.bmp)
+                echo "🖼️  Opening image with $IMAGE_VIEWER..."
+                temp_file=$(mktemp)
+                curl -sL "$url" | pv > "$temp_file"
+                [ -s "$temp_file" ] && ( $IMAGE_VIEWER "$temp_file" >/dev/null 2>&1; rm "$temp_file" ) &
+                ;;
+            *.pdf)
+                echo "📄 Opening PDF with $PDF_VIEWER..."
+                temp_file=$(mktemp)
+                curl -sL "$url" | pv > "$temp_file"
+                [ -s "$temp_file" ] && ( $PDF_VIEWER "$temp_file" >/dev/null 2>&1; rm "$temp_file" ) &
+                ;;
+            *)
+                echo "🌐 Opening in default app (xdg-open)..."
+                xdg-open "$url" >/dev/null 2>&1 &
+                ;;
+        esac
+    fi
+
+    # --- Download Logic ---
+    if [ "$action" == "⬇️ Download" ]; then
+        case "$filename" in
+            *.mp4|*.mkv|*.avi|*.webm|*.flv|*.ogv)
+                echo "⬇️  Downloading video via $VIDEO_DOWNLOADER..."
+                $VIDEO_DOWNLOADER "$url"
+                ;;
+            *)
+                echo "⬇️  Downloading to current directory..."
+                curl -L -o "$filename" "$url"
+                echo "✅ Downloaded $filename"
+                ;;
+        esac
+    fi
+
+    read -p "🔁 Perform another search? (y/n): " choice
+    case "$choice" in
+        y|Y ) continue ;;
+        n|N ) break ;;
+        * ) break ;;
+    esac
+done
+
+echo "👋 Goodbye."
+exit 0
