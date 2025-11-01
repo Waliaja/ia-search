@@ -1,3 +1,17 @@
+
+<img width="1211" height="291" alt="Screenshot from 2025-11-02 02-48-13" src="https://github.com/user-attachments/assets/09d59ee5-fa7a-4ad6-bb83-b07f8c100c16" />
+
+<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-50-32" src="https://github.com/user-attachments/assets/7866a334-d7d5-404e-997d-6fd265753444" />
+
+<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-51-26" src="https://github.com/user-attachments/assets/ec66522b-f9b1-4eea-83fe-b35cd5d85b7e" />
+
+<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-51-53" src="https://github.com/user-attachments/assets/bb334663-311c-4b1e-bb65-d02aa435d189" />
+
+<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-52-41" src="https://github.com/user-attachments/assets/58dd67bc-6fbd-4fb1-815c-19854dd379e6" />
+
+<img width="1920" height="1080" alt="Screenshot from 2025-11-02 03-02-12" src="https://github.com/user-attachments/assets/ea8e9f6d-9f9b-4f03-a5eb-15035f7fddf2" />
+
+
 # 🎬 ia-search
 
 **ia-search** is an interactive terminal browser and downloader for the **Internet Archive**, built with `fzf` and `ia-cli`.  
