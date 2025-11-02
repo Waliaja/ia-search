@@ -7,22 +7,22 @@ It lets you **browse**, **search**, **play**, and **download** media directly fr
 
 ## 🖼️ Screenshots
 
-<img width="1211" height="291" alt="Screenshot from 2025-11-02 02-48-13" src="https://github.com/user-attachments/assets/09d59ee5-fa7a-4ad6-bb83-b07f8c100c16" />
+<img width="1276" height="998" alt="Screenshot from 2025-11-02 20-58-55" src="https://github.com/user-attachments/assets/cacb3f1e-aac3-4214-a8a2-031470428da8" />
 <p align="center"><i>🏁 Main menu showing cached top collections</i></p>
 
-<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-50-32" src="https://github.com/user-attachments/assets/7866a334-d7d5-404e-997d-6fd265753444" />
+<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-06-32" src="https://github.com/user-attachments/assets/e5881379-b20f-466b-a5cb-8e828cc5bb2e" />
 <p align="center"><i>🔍 Searching across all Internet Archive collections</i></p>
 
-<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-51-26" src="https://github.com/user-attachments/assets/ec66522b-f9b1-4eea-83fe-b35cd5d85b7e" />
+<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-07-18" src="https://github.com/user-attachments/assets/9846adb8-98fb-4e47-a9f1-0a5f616803ac" />
 <p align="center"><i>🎥 Selecting an item result with fuzzy finder</i></p>
 
-<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-51-53" src="https://github.com/user-attachments/assets/bb334663-311c-4b1e-bb65-d02aa435d189" />
+<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-09-37" src="https://github.com/user-attachments/assets/f0d4bf5c-2cce-459a-be77-7aa4ce7d5954" />
 <p align="center"><i>📂 Browsing files within a selected Internet Archive item</i></p>
 
-<img width="1211" height="981" alt="Screenshot from 2025-11-02 02-52-41" src="https://github.com/user-attachments/assets/58dd67bc-6fbd-4fb1-815c-19854dd379e6" />
+<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-10-06" src="https://github.com/user-attachments/assets/5debd339-c35d-4d16-a929-57482059d4c0" />
 <p align="center"><i>🎬 Choosing to play or download the file</i></p>
 
-<img width="1920" height="1080" alt="Screenshot from 2025-11-02 03-02-12" src="https://github.com/user-attachments/assets/ea8e9f6d-9f9b-4f03-a5eb-15035f7fddf2" />
+<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-14-56" src="https://github.com/user-attachments/assets/be6d2a47-6601-4c87-ab0f-0f23f56affda" />
 <p align="center"><i>↩️ Smooth transition messages when returning between menus</i></p>
 
 ---
