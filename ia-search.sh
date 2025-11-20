@@ -72,9 +72,6 @@ show_collections() {
                 ;;
             "[🔍 Search all collections]")
                 search_mode
-                echo -e "\n──────────────────────────────────────────────"
-                echo "↩️  Returning to main collections..."
-                sleep 2
                 continue
                 ;;
             "[➡️ Next page]")
@@ -111,9 +108,6 @@ search_mode() {
                 break
             fi
             open_item "$identifier"
-            echo -e "\n──────────────────────────────────────────────"
-            echo "↩️  Returning to query..."
-            sleep 2
         done
     done
 }
@@ -125,9 +119,6 @@ browse_collection() {
     identifier=$(ia search "collection:$coll" --itemlist | fzf --prompt="🎞️ Select item from $coll > " --height=100% --reverse --border)
     [ -z "$identifier" ] && echo "🚫 No item selected." && return
     open_item "$identifier"
-    echo -e "\n──────────────────────────────────────────────"
-    echo "↩️  Returning to collection..."
-    sleep 2
 }
 
 # --- Open / Play / Download Item ---
@@ -155,14 +146,44 @@ open_item() {
             *.mp4|*.mkv|*.avi|*.webm|*.flv|*.ogv)
                 echo "🎞️ Playing video..."
                 video_basename=$(echo "$filename" | sed 's/\.[^.]*$//')
-                sub_file=$(echo "$file_list" | grep -E "${video_basename}\.(srt|ass)" | head -n1)
+                
+                sub_file=$(echo "$file_list" | grep -Fx -e "${video_basename}.srt" -e "${video_basename}.ass" | head -n1)
+
+                # Create a temporary log file to monitor mpv status
+                mpv_log=$(mktemp)
+
                 if [ -n "$sub_file" ]; then
                     sub_encoded=$(echo "$sub_file" | sed 's/ /%20/g')
                     sub_url="https://archive.org/download/$identifier/$sub_encoded"
-                    $VIDEO_PLAYER "$url" --sub-file="$sub_url" >/dev/null 2>&1 &
+                    # Redirect stderr/stdout to log file so we can grep it
+                    $VIDEO_PLAYER "$url" --sub-file="$sub_url" > "$mpv_log" 2>&1 &
                 else
-                    $VIDEO_PLAYER "$url" >/dev/null 2>&1 &
-                fi ;;
+                    $VIDEO_PLAYER "$url" > "$mpv_log" 2>&1 &
+                fi 
+                
+                pid=$!
+
+                # --- Real-time Launch Monitor ---
+                # This loop waits until mpv prints "VO:" (Video Output) or "AO:" (Audio Output) to the log.
+                # This confirms that buffering is done and the window is actually ready.
+                (
+                    # Timeout after 200 ticks (approx 20 seconds) to prevent hanging on slow networks
+                    for ((i=0; i<200; i++)); do
+                        # If mpv crashes, stop waiting
+                        if ! kill -0 "$pid" 2>/dev/null; then break; fi
+                        
+                        # Check the log for "VO:" or "AO:" (Success signals)
+                        if grep -q -E "^(VO|AO):" "$mpv_log"; then break; fi
+                        
+                        echo -n "."
+                        sleep 0.1
+                    done
+                ) | pv -p -t -e -N "🚀 Launching mpv" -s 200 > /dev/null
+
+                # Clean up
+                rm -f "$mpv_log"
+                ;;
+
             *.mp3|*.ogg|*.flac|*.wav|*.m4a)
                 echo "🎧 Playing audio..."
                 $AUDIO_PLAYER "$url" >/dev/null 2>&1 & ;;
@@ -202,4 +223,3 @@ open_item() {
 show_collections
 echo "👋 Goodbye."
 exit 0
-
