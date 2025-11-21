@@ -55,6 +55,25 @@ Now features a **Smart Launch Monitor** that intelligently manages the transitio
 | [`curl`](https://curl.se/) | File downloader / API fetcher |
 | [`pv`](https://www.ivarch.com/programs/pv.shtml) | Progress bar for launch monitoring |
 
+### Ubuntu dependencies
+This project includes an Ubuntu installer that sets up all required tools.
+
+```
+chmod +x install_deps.sh
+./install_deps.sh
+```
+
+This installs:
+
+- system packages via apt
+- Python packages inside a local virtual environment (.venv)
+
+To use Python-based tools:
+
+```
+source .venv/bin/activate
+```
+
 ### 🧩 Optional Viewer Config
 
 You can replace defaults easily in the script variables:
